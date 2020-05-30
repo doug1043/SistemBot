@@ -143,7 +143,6 @@ def process_action(action, tokens, conteudos, chat_id, msg_id, update):
 
     for item in tokens:
         usuarios[chat_id][item] = str(conteudos[tokens.index(item)])
-    print(actions)
 
     for a in actions:
       if usuarios[chat_id][a] == None:

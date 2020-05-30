@@ -27,9 +27,32 @@ TRAIN_DATA = [
     ('7', {'entities': [(0, 1, 'QUANTIDADE')]}), 
     ('8', {'entities': [(0, 1, 'QUANTIDADE')]}), 
     ('9', {'entities': [(0, 1, 'QUANTIDADE')]}), 
-    ('0', {'entities': [(0, 1, 'QUANTIDADE')]})]
-    ('Boa noite gostaria de uma pizza grande sabor toscana', {'entities': [(22, 25, 'QUANTIDADE'), (26, 31, 'TIPO'), (32, 38, 'TAMANHO'), (45, 52, 'SABOR')]})
-    ('ola quero uma pizza sabor portuguesa', {'entities': [(10, 13, 'QUANTIDADE'), (14, 19, 'TIPO'), (26, 36, 'SABOR')]})
+    ('0', {'entities': [(0, 1, 'QUANTIDADE')]}),
+    ('Boa noite gostaria de uma pizza grande sabor toscana', {'entities': [(22, 25, 'QUANTIDADE'), (26, 31, 'TIPO'), (32, 38, 'TAMANHO'), (45, 52, 'SABOR')]}),
+    ('ola quero uma pizza sabor portuguesa', {'entities': [(10, 13, 'QUANTIDADE'), (14, 19, 'TIPO'), (26, 36, 'SABOR')]}),
+    ('grande', {'entities': [(0, 6, 'TAMANHO')]}), 
+    ('media', {'entities': [(0, 5, 'TAMANHO')]}), 
+    ('pequena', {'entities': [(0, 7, 'TAMANHO')]}), 
+    ('quero a grande', {'entities': [(8, 14, 'TAMANHO')]}), 
+    ('quero a media', {'entities': [(8, 13, 'TAMANHO')]}), 
+    ('quero a pequena', {'entities': [(8, 15, 'TAMANHO')]}), 
+    ('grande por favor', {'entities': [(0, 6, 'TAMANHO')]}), 
+    ('media por favor', {'entities': [(0, 5, 'TAMANHO')]}), 
+    ('pequena por favor', {'entities': [(0, 7, 'TAMANHO')]}), 
+    ('pode ser grande', {'entities': [(9, 15, 'TAMANHO')]}), 
+    ('pode ser media', {'entities': [(9, 14, 'TAMANHO')]}), 
+    ('pode ser pequena', {'entities': [(9, 16, 'TAMANHO')]}),
+    ('pizza', {'entities': [(0, 5, 'TIPO')]}), 
+    ('uma pizza', {'entities': [(0, 3, 'QUANTIDADE'), (4, 9, 'TIPO')]}), 
+    ('quero pizza', {'entities': [(6, 11, 'TIPO')]}), 
+    ('pizzas', {'entities': [(0, 6, 'TIPO')]}), 
+    ('vou querer pizza', {'entities': [(11, 16, 'TIPO')]}),
+    ('queijo', {'entities': [(0, 6, 'SABOR')]}), 
+    ('carne', {'entities': [(0, 5, 'SABOR')]}), 
+    ('frango', {'entities': [(0, 6, 'SABOR')]}), 
+    ('chocolate', {'entities': [(0, 9, 'SABOR')]}), 
+    ('calabresa', {'entities': [(0, 9, 'SABOR')]}), 
+    ('toscana', {'entities': [(0, 7, 'SABOR')]})
 ]
 
 label_ = ['TIPO', 'QUANTIDADE', 'SABOR', 'TAMANHO']
@@ -39,7 +62,7 @@ model = '/home/douglas/Sistema BOT/NLP'
 
 saida = '/home/douglas/Sistema BOT/NLP'
 
-n_iter=30
+n_iter=20
 
 def train():
     
