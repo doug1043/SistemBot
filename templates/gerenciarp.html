@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Cadastrar palavra</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+    {% block body %}
+    <form action="{{ url_for('adicionarp') }}" method="POST">
+        <div class="form-group">
+          <label>Frase</label>
+          <input type="text" name="frase" value="Olá quero uma pizza sabor carne" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Tokens</label>
+          <input type="text" name="token" value="14,18,1,TIPO" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    {% endblock %}
+    </body>
+</html>

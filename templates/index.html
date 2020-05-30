@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Buscar Dados</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    {% block body %}
+    <h1>Lista de usuarios</h1>
+    <div class="container">
+        <table class="table">
+            <tbody>
+                {% for item in usuarios %}
+              <tr>
+                <th scope="row"></th>
+                <td>{{ item[0] }}</td>
+                <td>{{ item[1] }}</td>
+                <td><a class="btn btn-warning"  href="{{ url_for('editar_pessoa', id_selec=item[0]) }}">Editar Usuario</a></td>
+                <td><a class="btn btn-danger"  href="{{ url_for('apagar_pessoa',id_selec=item[0]) }}">Apagar </a></td>
+              </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+    </div>
+    
+    {% endblock %}
+    
+    <hr>
+
+    <button><a  href="{{ url_for('criar_pessoa') }}">Novo Usuario</a></button>
+
+    <hr>
+
+    <button><a href="{{ url_for('ger_frases') }}">teste</a></button>
+</body>
+
+
+</html>

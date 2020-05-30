@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+	<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+</head>
+
+<style>
+	.entitk {
+		float: left;
+		padding: 4px 4px;
+		color: white;
+		font-size: 20px;
+		font-family: monospace;
+        -webkit-user-select: none;
+        -moz-user-select: -moz-none;
+        -ms-user-select: none;
+        user-select: none;
+	}
+    .entitk div{
+			cursor: pointer;
+		}
+    .entitk2 {
+		float: left;
+		padding: 4px 4px;
+		color: white;
+		font-size: 10px;
+		font-family: monospace;
+        -webkit-user-select: none;
+        -moz-user-select: -moz-none;
+        -ms-user-select: none;
+        user-select: none;
+	}
+
+	.tokens {
+		background: #4B0082;
+		border: 5px solid;
+		border-color: white;
+	}
+
+	.buttontk {
+		height: 45px;
+		display: table;
+		padding: 10px 35px;
+		border: 2px solid;
+		border-color: white;
+		cursor: pointer;
+		margin: 1%;
+	}
+
+	.buttontk span {
+		vertical-align: middle;
+		display: table-cell;
+		color: white;
+	}
+
+	.teste {
+		margin: 100px;
+		background: white;
+	}
+
+	body {
+		background: #191970;
+	}
+
+	.pull-right {
+		float: right;
+	}
+
+	.form-control:disabled,
+	.form-control[readonly] {
+		background-color: #ffffff;
+		opacity: 1;
+	}
+
+	#save {
+		background: #191970;
+	}
+</style>
+
+<body>
+	<div id="app-7">
+
+		<b-container class="teste">
+
+        <b-alert v-model="showDismissibleAlert" variant="danger" dismissible>
+        Erro! É preciso salvar a frase digitada para definir os tokens de cada palavra!
+    </b-alert>
+
+			<b-row class="tokens">
+
+				<button class="buttontk" :style="{background:'blue'}" v-on:click="color = 'blue'; tk = 'COMIDA'; selecionarPalavra()"><span><strong>COMIDA</strong></span></button>
+
+				<button class="buttontk" :style="{background:'#FF4500'}" v-on:click="color = '#FF4500'; tk = 'INFO'; selecionarPalavra()"><span><strong>INFO</strong></span></button>
+
+				<button class="buttontk" :style="{background:'#6B8E23'}" v-on:click="color = '#6B8E23'; tk = 'TIPO'; selecionarPalavra()"><span><strong>TIPO</strong></span></button>
+
+				<button class="buttontk" :style="{background:'#3CB371'}" v-on:click="color = '#3CB371'; tk = 'SABOR'; selecionarPalavra()"><span><strong>SABOR</strong></span></button>
+
+				<button class="buttontk" :style="{background:'#A0522D'}" v-on:click="color = '#A0522D'; tk = 'QUANTIDADE'; selecionarPalavra()"><span><strong>QUANTIDADE</strong></span></button>
+
+				<button class="buttontk" :style="{background:'#20B2AA'}" v-on:click="color = '#20B2AA'; tk = 'TAMANHO'; selecionarPalavra()"><span><strong>TAMANHO</strong></span></button>
+
+				<button class="buttontk" :style="{background:'#2F4F4F'}" v-on:click="color = '#2F4F4F'; tk = 'SAUDACAO'; selecionarPalavra()"><span><strong>SAUDACAO</strong></span></button>
+
+			</b-row>
+
+			<hr>
+
+			<b-row>
+				<b-col cols="12">
+					<button type="button" v-on:click="bloqText()" class="btn btn-primary btn-sm pull-right">{{btnSE}}</button>
+					<b-form-textarea :readonly="editor" v-model="frase" id="textarea-no-resize" rows="3" no-resize
+						placeholder="Digite">
+					</b-form-textarea>
+					<b-row>
+						<b-col>
+							<hr>
+                            <div class="pull-right"><span>Clique duplo em cima da tag para apagar</span></div>
+							<todo-item
+                            v-for="(todo, index) in comand"
+                            v-bind:key="todo.id"
+                            v-bind:todo="todo"
+                            v-on:remove="comand.splice(index, 1)">
+							</todo-item>
+						</b-col>
+					</b-row>
+				</b-col>
+
+			</b-row>
+			<b-row id="save">
+				<div class="mt-3">
+					<b-button-group>
+						<b-button variant="success">Save</b-button>
+						<b-button variant="danger">Cancel</b-button>
+					</b-button-group>
+				</div>
+			</b-row>
+
+		</b-container>
+	</div>
+
+	<script>
+		Vue.component('todo-item', {
+      props: ['todo'],
+      template: `
+      <div v-on:dblclick="$emit(\'remove\')" class="entitk"><div :style="{background:todo.color}">{{todo.text}}<div class="entitk2"><div :style="{background:todo.color}">{{todo.token}}</div></div></div></div>
+  `
+    })
+
+
+    var app7 = new Vue({
+      el: '#app-7',
+      mounted() {
+        document.addEventListener('mouseup', event => {
+          if (event.target === this.$refs.target || event.target.contains(this.$refs.target))
+            this.selecionarPalavra();
+        });
+      },
+      data: {
+        tk: String, //tk -> Token
+        selec: '', //sekec -> Seleção
+        color: 'white', 
+        comand: [{
+
+        }],
+        nextTodoId: 0,
+        // users: [{
+
+        // }],
+        frase: '',
+        editor: false,
+        showDismissibleAlert: false, //Exibição do alerta de erros
+        btnSE: 'Salvar',
+      },
+      methods: {
+        //Metodo para guardar o texto selecionado
+        selecionarPalavra() {
+          if(this.editor == false){ //Verifica se o input esta desativado
+              this.showDismissibleAlert = true;
+          }
+          else{
+                this.selec = window.getSelection().toString(); //guarda a string selecionada pelo usuario
+                if(this.selec == ''){ //Verifica se alguma palavra foi selecionada
+                    console.log('nenhuma palavra selecionada')
+                }
+                else{
+                this.comand.push({
+                id: this.nextTodoId++,
+                text: this.selec,
+                token: this.tk,
+                color: this.color
+                });
+                console.log(this.comand);
+                }
+                
+          }
+          
+        },
+
+        bloqText(){ //Metodo para alterar o valor do botão edit, save ou exibir alerta de erro
+            if(this.showDismissibleAlert == true)
+            {
+                this.showDismissibleAlert = false; 
+            }
+            if(this.editor == true){
+                this.editor = false;
+                this.btnSE = 'Salvar'
+            }
+            else{
+                this.editor = true;
+                this.btnSE = 'Editar'
+            }
+        },
+
+
+        //Parte do codigo abaixo não será usada no momento | Serve para tratar o texto enviado pelo usuario, tirar excesso de espaço, valores null, etc
+        // teste(text) {
+        //   console.log(this.users);
+        //   str = text.replace(/\s{2,}/g, ' ');
+        //   if (str.split(" ")[0] == " " || str.split(" ")[0] == "") {
+        //     console.log("Erro ! Valor não pode iniciar por espaços");
+        //   }
+        //   else {
+        //     rms = str.trim();
+        //     vetstr = rms.split(" ");
+
+        //     for (item in vetstr) {
+        //       this.groceryList.push({ text: vetstr[item] });
+        //     }
+        //   }
+        // }
+      }
+    })
+
+
+//Parte do codigo abaixo não será usada no momento | Serve para carregar o arquivo com dados gravados
+    // fetch("saulo.json").then(function (r) {
+    //   return r.json();
+    // }).then(function (dados) {
+    //   this.groceryList = []
+    //   for (var i in dados) {
+    //     this.groceryList.push({ 'text': dados[i] })
+    //   }
+    // })
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+'Olá quero pizza';CARDAPIO
+'ola quero pizza';CARDAPIO
+'Bom dia quero pizza';CARDAPIO
+'bom dia, quero pizza';CARDAPIO
+'Boa tarde quero pizza';CARDAPIO
+'Boa tarde, quero pizza';CARDAPIO
+'Boa noite quero pizza';CARDAPIO
+'Boa noite, quero pizza';CARDAPIO
+'Olá gostaria de uma pizza';PEDIDO
+'ola, gostaria de uma pizza';PEDIDO
+'Olá gostaria de comprar uma pizza';PEDIDO
+'olá, gostaria de comprar uma pizza';PEDIDO
+'Oi gostaria de comprar uma pizza';PEDIDO
+'oi, gostaria de comprar uma pizza';PEDIDO
+'Gostaria de saber os sabores de pizzas disponiveis';CARDAPIO
+'Oi gostaria de saber os sabores de pizzas disponíveis';CARDAPIO
+'ola, quais os preços das pizzas?';CARDAPIO
+'Quanto custa uma pizza sabor queijo?';CARDAPIO
+'Quanto custa as pizzas?';CARDAPIO
+'Quanto custa três pizzas?';CARDAPIO
+'Qual o valor de cada pizza?';CARDAPIO
+'Teria como me informar o cardapio?';CARDAPIO
+'Quanto tempo demora para enviar o pedido?';INFO
+'Qual o tempo para que meu pedido chegue a minha casa?';INFO
+'Qual tempo medio para entrega?';INFO
+'Meu pedido chega em minha residencia com quanto tempo?';INFO
+'Olá quais os preços das pizzas';CARDAPIO
+'Oi quais os sabores de pizza disponíveis?';CARDAPIO
+'Tem lanhce?';CARDAPIO
+'Tem lanches?';CARDAPIO
+'Tem pizza?';CARDAPIO
+'Tem pizzas?';CARDAPIO
+'Tem bebidas?';CARDAPIO
+'Tem refrigerante?';CARDAPIO
+'Tem refrigerantes?';CARDAPIO
+'Tem suco?';CARDAPIO
+'Tem sucos?';CARDAPIO
+'Quais as opções de lanches?';CARDAPIO
+'Quais as opções de lanche?';CARDAPIO
+'Quais as opções de pizza?';CARDAPIO
+'Quais as opções de pizzas?';CARDAPIO
+'Quero comprar pizza';CARDAPIO
+'Quero comprar lanche';CARDAPIO
+'Quero comprar uma pizza';PEDIDO
+'Quero comprar um lanche';PEDIDO
+'Olá vocês fazem lanches?';CARDAPIO
+'Oi, vocês fazem lanches?';CARDAPIO
+'Olá, voçês fazem lanches?';CARDAPIO
+'Oi vocês fazem lanches?';CARDAPIO
+'Olá tem opções de lanches?';CARDAPIO
+'Oi tem opções de lanches?';CARDAPIO
+'Olá, tem opções de lanches?';CARDAPIO
+'Quero lanche';CARDAPIO
+'Bom dia tem lanches?';CARDAPIO
+'Boa tarde tem lanches?';CARDAPIO
+'Boa noite tem lanches?';CARDAPIO
+'Bom dia, tem lanches?';CARDAPIO
+'Boa tarde, tem lanches?';CARDAPIO
+'Boa noite, tem lanches?';CARDAPIO
+'Bom dia tem pizza?';CARDAPIO
+'Boa tarde tem pizza?';CARDAPIO
+'Boa noite tem pizza?';CARDAPIO
+'Bom dia, tem pizza?';CARDAPIO
+'Boa tarde, tem pizza?';CARDAPIO
+'Boa noite, tem pizza?';CARDAPIO
+'Bom dia tem pizzas?';CARDAPIO
+'Boa tarde tem pizzas?';CARDAPIO
+'Boa noite tem pizzas?';CARDAPIO
+'Bom dia, tem pizzas?';CARDAPIO
+'Boa tarde, tem pizzas?';CARDAPIO
+'Boa noite, tem pizzas?';CARDAPIO
+'Qual o menu das pizzas?';CARDAPIO
+'Qual o menu dos lanches?';CARDAPIO
+'Qual o cardapio das pizzas?';CARDAPIO
+'Qual o cardapio dos lanches?';CARDAPIO
+'Quais opções de pedidos vocês oferecem?';CARDAPIO
+'Ola quero um suco de goiaba';PEDIDO
+'quero um suco de caju';PEDIDO
+'Boa noite gostaria de um suco de manga';PEDIDO
+'Bom dia quero dois sucos de pessego;PEDIDO
+'Boa tarde quero um suco de maracuja';PEDIDO
+'ola quero um suco de maracujo por favor';PEDIDO
+'Qual o cardapio de sucos?';CARDAPIO
+'Qual o cardapio dos sucos?';CARDAPIO
+'QUal o menu de sucos?';CARDAPIO
+'Qual o menu dos sucos?';CARDAPIO
+'Fazem entregas?';SN
+'Faz entrega?';SN
+'Quais os metodos de pagamentos?';INFO
+'Quais são os metodos de pagamentos?';INFO
+'Aceitam cartão?';SN
+'Aceita cartão?';SN
+'Oi, é da pizzaria?';SN 
+'Oi, quero uma pizza pequena de calabresa por favor';PEDIDO
+'Olá quero uma pizza grande de frango com catupiry';PEDIDO
+'Oi desejo três pizzas, uma de carne, uma de queijo e uma toscana, por favor';PEDIDO
+'Gostaria de um X-salada';PEDIDO
+'Oi quero um lanche, quais opções voces oferecem?';CARDAPIO
+'Quero uma pizza sabor chocolate';PEDIDO
+'Quais as opções de pizzas doces?';CARDAPIO
+'Tem pizzas veganas?';CARDAPIO
+'Quais opções de pizzas veganas disponiveis?';CARDAPIO
+'Gostaria de pedir uma pizza';CARDAPIO
+'Por favor gostaria de comprar uma pizza de frango e outra de calabresa';PEDIDO
+'Gostaria de comprar um lanche, quais opções disponiveis?';CARDAPIO
+'Gostaria de comprar uma pizza, quais opções disponiveis?';CARDAPIO
+'Quais as opções de bebidas disponíveis?';CARDAPIO
+'Qual o menu das bebidas?';CARDAPIO
+'Por favor, pederia me tirar uma duvida?';SN
+'Poderia me tirar uma dúvida?';INFO
+'Estou com dúvida';INFO
+'Quais os preços e sabores das pizzas?';CARDAPIO
