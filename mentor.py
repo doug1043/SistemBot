@@ -3,8 +3,6 @@ import telegram
 import csv
 import spacy
 import re
-import json
-import pandas as pd
 import numpy as np
 from sklearn.preprocessing import LabelEncoder
 from sklearn.naive_bayes import GaussianNB
