@@ -77,7 +77,7 @@
 'Ola quero um suco de goiaba';PEDIDO
 'quero um suco de caju';PEDIDO
 'Boa noite gostaria de um suco de manga';PEDIDO
-'Bom dia quero dois sucos de pessego;PEDIDO
+'Bom dia quero dois sucos de pessego';PEDIDO
 'Boa tarde quero um suco de maracuja';PEDIDO
 'ola quero um suco de maracujo por favor';PEDIDO
 'Qual o cardapio de sucos?';CARDAPIO
@@ -90,7 +90,7 @@
 'Quais são os metodos de pagamentos?';INFO
 'Aceitam cartão?';SN
 'Aceita cartão?';SN
-'Oi, é da pizzaria?';SN 
+'Oi, é da pizzaria?';SN
 'Oi, quero uma pizza pequena de calabresa por favor';PEDIDO
 'Olá quero uma pizza grande de frango com catupiry';PEDIDO
 'Oi desejo três pizzas, uma de carne, uma de queijo e uma toscana, por favor';PEDIDO
@@ -110,3 +110,5 @@
 'Poderia me tirar uma dúvida?';INFO
 'Estou com dúvida';INFO
 'Quais os preços e sabores das pizzas?';CARDAPIO
+'iasudhiaushdiasudh';NADA
+'asdlaksjdasdjaskdaedhiudisunkasjdoehiweudnckjdsvsdhfbafbhfjsbdkfjdbjfbsjkfbhajbfejhbfwjdbjwehfbjwehbfcshbefsdbfsdbfskjfnkaeqjnekhfdfnhsdjhcjdskbjdngshkfjkdhfsjkkgjfskhjnsjnflkejrnfuewirhuhfiendfjnfskdjvnkdsf vdsfjnjfnaksbfbfdbgk asdfkasdbfjefbiaerfbeyfhuewrfnweurfbuwefbuwuedbhfheabrbejf';NADA
