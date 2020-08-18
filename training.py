@@ -101,6 +101,7 @@ TRAIN_DATA = [
 ("boa noite, gostaria de uma pizza grande de queijo por favor",{"entities":[(23,26,"QUANTIDADE"),(27,32,"PIZZA"),(33,39,"TAMANHO"),(43,49,"SABOR")]}),
 ("boa noite, gostaria de duas pizzas de queijo por favor",{"entities":[(23,27,"QUANTIDADE"),(28,34,"PIZZA"),(38,44,"SABOR")]}),
 ("boa noite, gostaria de uma pizza de queijo por favor",{"entities":[(23,26,"QUANTIDADE"),(27,32,"PIZZA"),(36,42,"SABOR")]}),
+("quero pizza",{"entities":[(6,11,"PIZZA")]}),
 ]
 
 label_ = ['PIZZA', 'QUANTIDADE', 'TAMANHO', 'SABOR']
