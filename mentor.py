@@ -9,7 +9,7 @@ from sklearn.naive_bayes import GaussianNB
 from datetime import datetime
 from config import nlp as nlpconfig, bot
 # from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove
-from config import bot_token, bot_user_name,URL, bot, TOKEN
+from config import bot_token, bot_user_name, bot, TOKEN
 # import testebd
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, ConversationHandler
 from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove)
