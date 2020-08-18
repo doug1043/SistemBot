@@ -147,19 +147,32 @@ def process_cont(msg):
     
 def verif_INFO(conteudo):
     conteudo = conteudo.split()
-    if re.search("pag+", str(conteudo)) or re.search("dinh+", str(conteudo)) or re.search("cart+", str(conteudo)):
+    if re.search("pagamentos?", str(conteudo)) or re.search("dinheiro", str(conteudo)) or re.search("cart[aãoõ](o|es)", str(conteudo)):
         return 'Aceitamos dinheiro, Cartão ou via Paypal'
     elif re.search("d[uú]vidas?", str(conteudo)) or re.search("funcionam?", str(conteudo)):
         return 'Entendi que você tem dúvidas, mande o comando /help \npara saber todos os comandos que consigo entender :)'
+    elif re.search("desenvolv(eu|ido)", str(conteudo)) or re.search("pai", str(conteudo)):
+        return 'Eu fui desenvolvido pelo Douglas :D'
+    elif re.search("programado", str(conteudo)) or re.search("linguagem", str(conteudo)) or re.search("python", str(conteudo)):
+        return 'Eu fui desenvolvido em Python'
+    elif re.search("sabe", str(conteudo)) or re.search("fazer", str(conteudo)):
+        return 'Por enquanto, não muita coisa. Mas pretendo evoluir com o tempo'
+    elif re.search("java", str(conteudo)) or re.search("php", str(conteudo)) or re.search("sql", str(conteudo)):
+        return 'Python'
+    elif re.search("endereço", str(conteudo)) or re.search("localizaç[ãa]o", str(conteudo)):
+        return 'Ficamos na rua Av. tal, Bairro tal numero tal'
+    elif re.search("nome", str(conteudo)):
+        return 'hmm... Eu ainda não tenho um nome :('
+    elif re.search("rob[oô]", str(conteudo)) or re.search("bot", str(conteudo)):
+        return 'Sou um robô desenvolvido para lhe atender de forma rapida e pratica. É só pedir :D'
     else: 
         return 'Desculpe, não entendi. Por favor Tente novamente com outras palavras'
 
 def verif_SN(conteudo):
     conteudo = conteudo.split()
     for ac in conteudo:
-        if re.search("cart+", str(ac)) or re.search("entreg+", str(ac)) or re.search("bebid+", str(ac)) or re.search("pizza+", str(ac)) or re.search("lanch+", str(ac)):
+        if re.search("cart[aã]o", str(ac)) or re.search("entregas?", str(ac)) or re.search("bebidas?", str(ac)) or re.search("pizzas?", str(ac)) or re.search("lanches?", str(ac)):
             return 'Sim'
-
     return 'Não'
 
 def processar_token_faltante(context, tokens, conteudos):
@@ -180,6 +193,9 @@ def processar_produto(keymsg):
 
     return None
 
+def saudacao(update, context):
+    update.message.reply_text('Olá, eu sou um robô e estou aqui para lhe atender. É só pedir :)')
+
 def pedido_direto(update, context):
     context.user_data['direto'] = None
     frase = update.message.text.lower()
@@ -197,7 +213,7 @@ def pedido_direto(update, context):
     if tipo == 'PEDIDO':
         return fazendo_pedido(update, context)
     elif tipo == 'CARDAPIO':
-        update.message.reply_text('Cardapio') 
+        update.message.reply_text('Temos pizzas de:\nQueijo\nCalabresa\nToscana') 
         return END
     elif tipo == 'SN':
         sn = verif_SN(frase)
@@ -205,6 +221,9 @@ def pedido_direto(update, context):
     elif tipo == 'INFO':
         info = verif_INFO(frase)
         update.message.reply_text(info)
+    elif tipo == 'SD':
+        saudacao(update, context)
+        return END
     else:
         return END
 
@@ -224,19 +243,21 @@ def start(update, context):
     
     update.message.reply_text(saudacao)
 
-    return END
+    return pedido(update, context)
 
 def help_handler(update, context):
-    update.message.reply_text('ajuda')
+    update.message.reply_text('Eu sou um robô desenvolvido para lhe atender de maneira rápida e facil.\n'
+    'Ainda estou em fase de desenvolvimento, então eu aprendi poucas coisas ainda.\n'
+    'Você pode fazer o pedido completo ou por partes, vou citar alguns exemplos:\n'
+    '"Quero pizza", ou "Quero uma pizza pequena", ou "quero uma pizza pequena de queijo"\n')
 
     return END
 
 def pedido(update, context):
     if 'direto' not in context.user_data:
         update.message.reply_text(
-            'Olá, eu sou um robô treinado para lhe ajudar a fazer seu pedido'
-            ' Envie /cancel para cancelar a conversa.\n\n'
-            'Vamos lá. O que você deseja?')
+            'Eu sou um robô treinado para lhe ajudar a fazer seu pedido'
+            '\nVocê pode começar fazendo o pedido como por exemplo:\n"Quero uma pizza" ou "quero uma coca"')
 
     context.user_data['TIPO'] = None
     context.user_data['PRODUTO'] = None
@@ -275,6 +296,11 @@ def fazendo_pedido(update, context):
     contmsg = process_cont(frase) 
     keymsg = process_keys(frase)
     produto = processar_produto(keymsg)
+
+    if produto == None:
+        update.message.reply_text('Tivemos um problema ao processar seu pedido, por favor tente novamente com outras palavras.')
+        return END
+
     context.user_data['PRODUTO'] = produto
     token_faltante = processar_token_faltante(context, keymsg, contmsg)
     print('produto: ',produto)

@@ -82,7 +82,7 @@
 'ola quero um suco de maracujo por favor';PEDIDO
 'Qual o cardapio de sucos?';CARDAPIO
 'Qual o cardapio dos sucos?';CARDAPIO
-'QUal o menu de sucos?';CARDAPIO
+'Qual o menu de sucos?';CARDAPIO
 'Qual o menu dos sucos?';CARDAPIO
 'Fazem entregas?';SN
 'Faz entrega?';SN
@@ -110,5 +110,36 @@
 'Poderia me tirar uma dúvida?';INFO
 'Estou com dúvida';INFO
 'Quais os preços e sabores das pizzas?';CARDAPIO
+'Oi';SD
+'Oi, tudo bem?';SD
+'Boa noite';SD
+'Bom dia';SD
+'Boa tarde';SD
+'Olá';SD
+'Tudo bem?';SD
+'Como você está?';SD
+'Quem desenvolveu você?';INFO
+'Qual linguagem de programação você foi desenvolvido?';INFO
+'Qual linguagem você foi criado?';INFO
+'O que você sabe fazer?';INFO
+'Quem é seu pai?';INFO
+'Qual o seu nome?';INFO
+'Como você foi desenvolvido?';INFO
+'O que é você';SD
+'O que você é?';SD
+'Você é um robo?';INFO
+'Você é um bot?';INFO
+'bot?';INFO
+'Python?';INFO
+'PHP?';INFO
+'JAVA?';INFO
+'SQL?';INFO
+'.';NADA
+',';NADA
+'@';NADA
+'#';NADA
+'Qual o endereço da pizzaria?';INFO
+'Qual o endereço de vocês?';INFO
+'Qual a localização de vocês?';INFO
 'iasudhiaushdiasudh';NADA
 'asdlaksjdasdjaskdaedhiudisunkasjdoehiweudnckjdsvsdhfbafbhfjsbdkfjdbjfbsjkfbhajbfejhbfwjdbjwehfbjwehbfcshbefsdbfsdbfskjfnkaeqjnekhfdfnhsdjhcjdskbjdngshkfjkdhfsjkkgjfskhjnsjnflkejrnfuewirhuhfiendfjnfskdjvnkdsf vdsfjnjfnaksbfbfdbgk asdfkasdbfjefbiaerfbeyfhuewrfnweurfbuwefbuwuedbhfheabrbejf';NADA

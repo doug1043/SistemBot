@@ -8,7 +8,7 @@
     "vectors_name":null
   },
   "learn_tokens":false,
-  "nr_class":95,
+  "nr_class":94,
   "hidden_depth":1,
   "token_vector_width":96,
   "hidden_width":64,

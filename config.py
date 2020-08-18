@@ -15,7 +15,7 @@ credenciais = {}
 
 nlp = {}
 
-nlp["dic"] = '/home/douglas/Sistema BOT/NLP'
+nlp["dic"] = '/home/douglas/Documentos/SistemBot/NLP'
 
 
 
