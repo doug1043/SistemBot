@@ -11,8 +11,8 @@ from config import nlp as nlpconfig, bot
 # from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove
 from config import bot_token, bot_user_name, bot, TOKEN
 # import testebd
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, ConversationHandler
-from telegram import (ReplyKeyboardMarkup, ReplyKeyboardRemove)
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, ConversationHandler, CallbackQueryHandler
+from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, InlineKeyboardButton, InlineKeyboardMarkup
 
 
 PIZZA, LANCHE, BEBIDA, FAZENDO_PEDIDO, ENVIANDO_ENDERECO, PEDIR_MAIS, BAIRRO, NUMERO, CONTATO, CONFIRMAR_ENDERECO = range(10)
@@ -144,6 +144,72 @@ def process_cont(msg):
     c = [(entity) for entity in doc.ents]
     print('conteudos: ', c)
     return c
+
+def menu(update, context):
+    update.message.reply_text(menu_principal_message(), reply_markup=menu_principal_keyboard())
+
+def menu_principal(update,context):
+    query = update.callback_query
+    query.answer()
+    query.edit_message_text(text=menu_principal_message(), reply_markup=menu_principal_keyboard())
+
+def pizzas_salgadas(update,context):
+    query = update.callback_query
+    query.answer()
+    query.edit_message_text(text=pizzas_salgadas_message(), reply_markup=home_keyboard())
+
+def pizzas_doces(update,context):
+    query = update.callback_query
+    query.answer()
+    query.edit_message_text(text=pizzas_doces_message(), reply_markup=home_keyboard())
+
+def lanches(update, context):
+    query = update.callback_query
+    query.answer()
+    query.edit_message_text(text=lanches_message(), reply_markup=home_keyboard())
+
+def bebidas(update, context):
+    query = update.callback_query
+    query.answer()
+    query.edit_message_text(text=bebidas_message(), reply_markup=home_keyboard())
+
+def precos(update, context):
+    query = update.callback_query
+    query.answer()
+    query.edit_message_text(text=precos_message(), reply_markup=home_keyboard())
+
+############################ Keyboards Menu #########################################
+def home_keyboard():
+    keyboard = [[InlineKeyboardButton('Voltar', callback_data='main')]]
+    return InlineKeyboardMarkup(keyboard)
+
+def menu_principal_keyboard():
+    keyboard = [[InlineKeyboardButton('\N{SLICE OF PIZZA} Pizzas Salgadas', callback_data='pizzas_salgadas'),
+               InlineKeyboardButton('\N{SLICE OF PIZZA} Pizzas Doces', callback_data='pizzas_doces')],
+              [InlineKeyboardButton('\N{HAMBURGER} Lanches', callback_data='lanches'),
+               InlineKeyboardButton('\N{TROPICAL DRINK} Bebidas', callback_data='bebidas')],
+             [InlineKeyboardButton('\N{MONEY BAG} Preços das Pizzas', callback_data='precos')]
+  ]
+    return InlineKeyboardMarkup(keyboard)
+
+############################# Messages Menu #########################################
+def menu_principal_message():
+    return '-------------- Cardapio\nEscolha umas das opções abaixo para obter informações sobre os produtos disponíveis!\nEscolha um item e é só pedir'
+
+def pizzas_salgadas_message():
+    return 'Queijo__________\nCalabresa__________\nToscana__________'
+
+def pizzas_doces_message():
+    return 'Chocolate\nBrigadeiro'
+
+def lanches_message():
+    return '- X-Burger\n- X-Bacon\n- X-Tudo'
+
+def bebidas_message():
+    return '- Refrigerante Lata\n- Refrigerante 600ml\n- Refrigerante 2L\n- Cerveja Lata'
+
+def precos_message():
+    return '######### Pizzas ##########\n\n# Pequena_______________15,00R$ \n# Media__________________18,00R$ \n# Grande__________________20,00R$'
     
 def verif_INFO(conteudo):
     conteudo = conteudo.split()
@@ -213,7 +279,7 @@ def pedido_direto(update, context):
     if tipo == 'PEDIDO':
         return fazendo_pedido(update, context)
     elif tipo == 'CARDAPIO':
-        update.message.reply_text('Temos pizzas de:\nQueijo\nCalabresa\nToscana') 
+        menu(update, context) 
         return END
     elif tipo == 'SN':
         sn = verif_SN(frase)
@@ -249,7 +315,10 @@ def help_handler(update, context):
     update.message.reply_text('Eu sou um robô desenvolvido para lhe atender de maneira rápida e facil.\n'
     'Ainda estou em fase de desenvolvimento, então eu aprendi poucas coisas ainda.\n'
     'Você pode fazer o pedido completo ou por partes, vou citar alguns exemplos:\n'
-    '"Quero pizza", ou "Quero uma pizza pequena", ou "quero uma pizza pequena de queijo"\n')
+    '"Quero pizza", ou "Quero uma pizza pequena", ou "quero uma pizza pequena de queijo"\n'
+    '-----------Comandos Rapidos\n'
+    '\N{WHITE RIGHT POINTING BACKHAND INDEX} /menu exibe um cardapio interativo com os produtos disponíveis\n'
+    '\N{WHITE RIGHT POINTING BACKHAND INDEX} /pedido fazer um pedido')
 
     return END
 
@@ -485,6 +554,13 @@ def main():
             CommandHandler('start', start), 
             CommandHandler('help', help_handler), 
             CommandHandler('pedido', pedido), 
+            CommandHandler('menu', menu),
+            CallbackQueryHandler(menu_principal, pattern='main'),
+            CallbackQueryHandler(pizzas_salgadas, pattern='pizzas_salgadas'),
+            CallbackQueryHandler(pizzas_doces, pattern='pizzas_doces'),
+            CallbackQueryHandler(lanches, pattern='lanches'),
+            CallbackQueryHandler(bebidas, pattern='bebidas'),
+            CallbackQueryHandler(precos, pattern='precos'),
             MessageHandler(Filters.text, pedido_direto)],
 
         states={
