@@ -123,7 +123,6 @@ predicao, word_to_id = treino_dialog()
 def process_dialog(comando):
     global predicao
     global word_to_id
-    print('process_dialog')
 
     tokens_frase = extrair_tokens(comando)
 
