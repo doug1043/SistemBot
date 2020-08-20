@@ -1,3 +1,4 @@
+import pickle
 import cProfile
 import telegram
 import csv
@@ -8,9 +9,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.naive_bayes import GaussianNB
 from datetime import datetime
 from config import nlp as nlpconfig, bot
-# from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove
 from config import bot_token, bot_user_name, bot, TOKEN
-# import testebd
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, ConversationHandler, CallbackQueryHandler
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, InlineKeyboardButton, InlineKeyboardMarkup
 
@@ -43,12 +42,6 @@ actions = {
     "BEBIDA": {"QUANTIDADE": None}
 }
 
-
-def tokenize(text):
-    # obtains tokens with a least 1 alphabet
-    pattern = re.compile(r'[A-Za-z]+[\w^\']*|[\w^\']*[A-Za-z]+[\w^\']*')
-    return pattern.findall(text.lower())
-
 def mapping(tokens):
     word_to_id = dict()
 
@@ -76,10 +69,8 @@ def generate_training_data(tokens, word_to_id, window_size):
         for j in nbr_inds:
             X.append(word_to_id[tokens[i]])
             Y.append(word_to_id[tokens[j]])
-            
-    X = np.array(X)
+
     X = np.expand_dims(X, axis=0)
-    Y = np.array(Y)
     Y = np.expand_dims(Y, axis=0)
 
     return X, Y
@@ -91,45 +82,57 @@ def extrair_tokens(comando):
 
     return list(tokens)
 
-def process_dialog(comando):
+def treino_dialog():
     lista1 = []
     lista2 = []
 
-    with open('dialogo.csv', newline='') as csvfile:
-        spamreader = csv.reader(csvfile, delimiter=';')
-        for coluna in spamreader:
-            lista1 += [coluna[0]]
-            lista2 += [coluna[1]]
+    try:
+        with open('objs.pkl', 'rb') as f:
+            X, word_to_id, le, L2 = pickle.load(f)
+    except IOError:
+        # if aqui
+        with open('dialogo.csv', newline='') as csvfile:
+            spamreader = csv.reader(csvfile, delimiter=';')
+            for coluna in spamreader:
+                lista1 += [coluna[0]]
+                lista2 += [coluna[1]]
 
+        string1 = ', '.join(lista1)
+        # extrair os tokens :)
+        print('treino dialog')
+        tokens = extrair_tokens(string1)
+        print('passou extrair tk')
+        word_to_id = mapping(tokens)
+        X = [generate_test_data(extrair_tokens(comando), word_to_id) for comando in lista1]
+        le = LabelEncoder()
+        L2 = le.fit(lista2).transform(lista2)
+        clf = GaussianNB()
 
-    string1 = ', '.join(lista1)
-    # extrair os tokens :)
-    tokens = extrair_tokens(string1)
-
-    word_to_id = mapping(tokens)
-
-    tokens_frase = extrair_tokens(comando)
-
-    Xt = generate_test_data(tokens_frase, word_to_id)
-
-    le = LabelEncoder()
-    L2 = le.fit(lista2).transform(lista2)
-
-    clf = GaussianNB()
-
-    X = [generate_test_data(extrair_tokens(comando), word_to_id) for comando in lista1]
+        with open('objs.pkl', 'wb') as f:
+            pickle.dump([X, word_to_id, le, L2], f)
 
     clf.fit(X, L2)
 
+    def predicao_dialog(clf, le, Xt):
+        saida = clf.predict(np.asarray(Xt).reshape(1, -1))
+        proc = ''.join(le.inverse_transform(saida))
+        print('proc: ',proc)
+        return proc
+    
+    return lambda Xt: predicao_dialog(clf, le, Xt), word_to_id
+
+predicao, word_to_id = treino_dialog()
+
+def process_dialog(comando):
+    global predicao
+    global word_to_id
+    print('process_dialog')
+
     tokens_frase = extrair_tokens(comando)
 
     Xt = generate_test_data(tokens_frase, word_to_id)
 
-    saida = clf.predict(np.asarray(Xt).reshape(1, -1))
-    proc = ''.join(le.inverse_transform(saida))
-    print('proc: ',proc)
-
-    return proc 
+    return predicao(Xt)
 
 def process_keys(msg):
     x = msg
