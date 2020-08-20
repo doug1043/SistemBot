@@ -90,7 +90,6 @@ def treino_dialog():
         with open('objs.pkl', 'rb') as f:
             X, word_to_id, le, L2 = pickle.load(f)
     except IOError:
-        # if aqui
         with open('dialogo.csv', newline='') as csvfile:
             spamreader = csv.reader(csvfile, delimiter=';')
             for coluna in spamreader:
@@ -99,9 +98,7 @@ def treino_dialog():
 
         string1 = ', '.join(lista1)
         # extrair os tokens :)
-        print('treino dialog')
         tokens = extrair_tokens(string1)
-        print('passou extrair tk')
         word_to_id = mapping(tokens)
         X = [generate_test_data(extrair_tokens(comando), word_to_id) for comando in lista1]
         le = LabelEncoder()
