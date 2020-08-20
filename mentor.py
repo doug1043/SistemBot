@@ -89,6 +89,7 @@ def treino_dialog():
     try:
         with open('objs.pkl', 'rb') as f:
             X, word_to_id, le, L2 = pickle.load(f)
+
     except IOError:
         with open('dialogo.csv', newline='') as csvfile:
             spamreader = csv.reader(csvfile, delimiter=';')
@@ -103,11 +104,11 @@ def treino_dialog():
         X = [generate_test_data(extrair_tokens(comando), word_to_id) for comando in lista1]
         le = LabelEncoder()
         L2 = le.fit(lista2).transform(lista2)
-        clf = GaussianNB()
-
+        
         with open('objs.pkl', 'wb') as f:
             pickle.dump([X, word_to_id, le, L2], f)
 
+    clf = GaussianNB()
     clf.fit(X, L2)
 
     def predicao_dialog(clf, le, Xt):
