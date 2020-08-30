@@ -14,7 +14,7 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Conve
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove, InlineKeyboardButton, InlineKeyboardMarkup
 
 
-PIZZA, LANCHE, BEBIDA, FAZENDO_PEDIDO, ENVIANDO_ENDERECO, PEDIR_MAIS, BAIRRO, NUMERO, CONTATO, CONFIRMAR_ENDERECO = range(10)
+PIZZA, LANCHE, BEBIDA, FAZENDO_PEDIDO, ENVIANDO_ENDERECO, PEDIR_MAIS, NOME_CLIENTE, BAIRRO, NUMERO, CONTATO, CONFIRMAR_ENDERECO = range(11)
 
 END = ConversationHandler.END
 
@@ -23,7 +23,7 @@ nlp = spacy.load(nlpconfig["dic"])
 usuarios = {
 }
 
-CHAT_TIMEOUT=300
+CHAT_TIMEOUT = 300
 
 perguntas = {
     "PIZZA":{"SABOR": 'Qual sabor você quer? Temos:\nQueijo\nCarne\nCalabresa',
@@ -284,11 +284,16 @@ def pedido_direto(update, context):
     elif tipo == 'SN':
         sn = verif_SN(frase)
         update.message.reply_text(sn)
+        return END
     elif tipo == 'INFO':
         info = verif_INFO(frase)
         update.message.reply_text(info)
+        return END
     elif tipo == 'SD':
         saudacao(update, context)
+        return END
+    elif tipo == 'HUMANO':
+        update.message.reply_text('Ok, basta clicar no link abaixo que você será redirecionado para conversar com uma pessoa via whatsapp.\n\nhttps://api.whatsapp.com/send?phone=5588981260717')
         return END
     else:
         return END
@@ -347,13 +352,21 @@ def pedir_mais(update, context):
         reply_markup=ReplyKeyboardRemove())
         return FAZENDO_PEDIDO
     elif frase == 'NÃO':
-        update.message.reply_text('Ok, agora preciso de seu endereço. Vamos começar pelo nome da rua', 
+        update.message.reply_text('Certo, Qual seu nome?', 
         reply_markup=ReplyKeyboardRemove())
-        return ENVIANDO_ENDERECO
+        return NOME_CLIENTE
     else:
         update.message.reply_text('Desculpe, não entendi :(\n\nEnvie /start para refazer o pedido', 
         reply_markup=ReplyKeyboardRemove())
         return END
+
+# def confirmar_pedido(update, context):
+#     frase = update.message.text
+#     if frase.lower() == 'SIM':
+#         update.message.reply_text('Pedido:')
+#         'Item: {}'
+#         ''
+#         return NOME_CLIENTE
 
 def fazendo_pedido(update, context):
     frase = update.message.text.lower()
@@ -430,17 +443,23 @@ def lanche(update, context):
     return LANCHE
 
 def confirmar_endereco(update, context):
+    msg_corrige_nome = 'Corrigindo dados...\nInforme novamente seu nome'
     msg_corrige_rua = 'Corrigindo dados...\nInforme o nome da rua'
     msg_corrige_bairro = 'Corrigindo dados...\nInforme o nome do bairro'
     msg_corrige_numero = 'Corrigindo dados...\nInforme o numero de sua residencia'
     msg_corrige_contato = 'Corrigindo dados...\nInforme o contato'
 
+    msg_nome = 'Ok, agora preciso de seu endereço para entrega do pedido. Vamos começar pelo nome da rua.'
     msg_rua = 'Agora informe o nome do bairro'
     msg_bairro = 'Informe o numero de sua residencia'
     msg_numero = 'Informe um contato para que a gente possa entrar em contato caso precisarmos de mais alguma informação'
     
     if update.message.text == 'SIM':
-        if context.user_data['estado'] == 'rua':
+        if context.user_data['estado'] == 'nome':
+            update.message.reply_text(msg_nome,
+            reply_markup=ReplyKeyboardRemove())
+            return ENVIANDO_ENDERECO
+        elif context.user_data['estado'] == 'rua':
             update.message.reply_text(msg_rua, 
             reply_markup=ReplyKeyboardRemove())
             return BAIRRO
@@ -458,7 +477,11 @@ def confirmar_endereco(update, context):
             return END
 
     if update.message.text == 'NÃO':
-        if context.user_data['estado'] == 'rua':
+        if context.user_data['estado'] == 'nome':
+            update.message.reply_text(msg_corrige_nome,
+            reply_markup=ReplyKeyboardRemove())
+            return NOME_CLIENTE
+        elif context.user_data['estado'] == 'rua':
             update.message.reply_text(msg_corrige_rua, 
             reply_markup=ReplyKeyboardRemove())
             return ENVIANDO_ENDERECO
@@ -478,6 +501,15 @@ def confirmar_endereco(update, context):
         update.message.reply_text('Desculpe, não entendi :(\n\nEnvie /start para refazer o pedido', 
         reply_markup=ReplyKeyboardRemove())
         return END
+
+def nome_cliente(update, context):
+    context.user_data['estado'] = 'nome'
+    reply_keyboard = [['SIM', 'NÃO']]
+    context.user_data['endereco']['nome'] = update.message.text
+    update.message.reply_text('Nome: {}\n\nEstá correto?'.format(context.user_data['endereco']['nome']),
+    reply_markup=ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True, resize_keyboard=True))
+
+    return CONFIRMAR_ENDERECO
 
 def enviando_endereco(update, context):
     context.user_data['estado'] = 'rua'
@@ -525,20 +557,6 @@ def timeout(update, context):
 
     return END
 
-def analisar_msg(update, context):
-    comando = update.message.text.lower()
-    comando = re.sub('[^a-z-áàâãéèêíïóôõöúç0-9 ]', '', comando)
-    tipo = process_dialog(comando)
-
-    if 'PEDIDO' in tipo:
-        update.message.reply_text('Digite /pedido para fazer um pedido')
-    elif 'CARDAPIO' in tipo:
-        update.message.reply_text('Cardapio')
-    elif 'INFO' in tipo:
-        update.message.reply_text('Digite o comando /help para saber sobre diversas informações')
-    else:
-        update.message.reply_text('Desculpe, não entendi.\nDigite o comando /pedido para fazer um pedido\nhelp para informações')
-
 def cancel(update, context):
     update.message.reply_text('Ok, conversa cancelada.\nPara fazer um novo pedido envie /start', 
     reply_markup=ReplyKeyboardRemove())
@@ -568,6 +586,7 @@ def main():
             PIZZA: [MessageHandler(Filters.text, pizza)],
             LANCHE: [MessageHandler(Filters.text, lanche)],
             PEDIR_MAIS: [MessageHandler(Filters.text, pedir_mais)],
+            NOME_CLIENTE: [MessageHandler(Filters.text, nome_cliente)],
             ENVIANDO_ENDERECO: [MessageHandler(Filters.text, enviando_endereco)],
             BAIRRO: [MessageHandler(Filters.text, bairro)],
             NUMERO: [MessageHandler(Filters.text, numero)],

@@ -1,11 +1,10 @@
-'Olá quero pizza';CARDAPIO
-'ola quero pizza';CARDAPIO
-'Bom dia quero pizza';CARDAPIO
-'bom dia, quero pizza';CARDAPIO
-'Boa tarde quero pizza';CARDAPIO
-'Boa tarde, quero pizza';CARDAPIO
-'Boa noite quero pizza';CARDAPIO
-'Boa noite, quero pizza';CARDAPIO
+'Olá quero pizza';PEDIDO
+'Bom dia quero pizza';PEDIDO
+'bom dia, quero pizza';PEDIDO
+'Boa tarde quero pizza';PEDIDO
+'Boa tarde, quero pizza';PEDIDO
+'Boa noite quero pizza';PEDIDO
+'Boa noite, quero pizza';PEDIDO
 'Olá gostaria de uma pizza';PEDIDO
 'ola, gostaria de uma pizza';PEDIDO
 'Olá gostaria de comprar uma pizza';PEDIDO
@@ -20,6 +19,7 @@
 'Quanto custa três pizzas?';CARDAPIO
 'Qual o valor de cada pizza?';CARDAPIO
 'Teria como me informar o cardapio?';CARDAPIO
+'Qual o cardapio?';CARDAPIO
 'Quanto tempo demora para enviar o pedido?';INFO
 'Qual o tempo para que meu pedido chegue a minha casa?';INFO
 'Qual tempo medio para entrega?';INFO
@@ -39,8 +39,8 @@
 'Quais as opções de lanche?';CARDAPIO
 'Quais as opções de pizza?';CARDAPIO
 'Quais as opções de pizzas?';CARDAPIO
-'Quero comprar pizza';CARDAPIO
-'Quero comprar lanche';CARDAPIO
+'Quero comprar pizza';PEDIDO
+'Quero comprar lanche';PEDIDO
 'Quero comprar uma pizza';PEDIDO
 'Quero comprar um lanche';PEDIDO
 'Olá vocês fazem lanches?';CARDAPIO
@@ -50,7 +50,7 @@
 'Olá tem opções de lanches?';CARDAPIO
 'Oi tem opções de lanches?';CARDAPIO
 'Olá, tem opções de lanches?';CARDAPIO
-'Quero lanche';CARDAPIO
+'Quero lanche';PEDIDO
 'Bom dia tem lanches?';CARDAPIO
 'Boa tarde tem lanches?';CARDAPIO
 'Boa noite tem lanches?';CARDAPIO
@@ -74,6 +74,8 @@
 'Qual o cardapio das pizzas?';CARDAPIO
 'Qual o cardapio dos lanches?';CARDAPIO
 'Quais opções de pedidos vocês oferecem?';CARDAPIO
+'Quais as opções?';CARDAPIO
+'Quero o cardapio por favor';CARDAPIO
 'Ola quero um suco de goiaba';PEDIDO
 'quero um suco de caju';PEDIDO
 'Boa noite gostaria de um suco de manga';PEDIDO
@@ -134,6 +136,15 @@
 'PHP?';INFO
 'JAVA?';INFO
 'SQL?';INFO
+'Eu gostaria de falar com um humano por favor';HUMANO
+'Olá boa noite, quero falar com um humano';HUMANO
+'Quero falar com uma pessoa responsável';HUMANO
+'Quero falar com um humano';HUMANO
+'Por favor me passe para uma pessoa';HUMANO
+'Não quero falar com um robô';HUMANO
+'Não quero conversar com robô';HUMANO
+'gostaria de fazer uma reclamação';HUMANO
+'Quero fazer uma reclamação';HUMANO
 '.';NADA
 ',';NADA
 '@';NADA
