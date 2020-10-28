@@ -1,7 +1,7 @@
 import cProfile
 import telegram
 
-bot_token = "940961290:AAG0tLWs5c0uyH5mi5cNyKjuPoZY4dfStyY"
+bot_token = "token"
 
 bot_user_name = "nome do bot"
 
