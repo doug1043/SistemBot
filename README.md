@@ -1,6 +1,6 @@
 # SistemBot
 
-Projeto de desenvolvimento de um ChatBot para atendimento automatizado em pizzarias, utilizando ferramentas de processamento de Linguagem Natural e reconhecimento de padrões, na API de BOTs do Telegram. 
+Projeto de desenvolvimento de um ChatBot para atendimento automatizado em pizzarias, utilizando ferramentas de processamento de Linguagem Natural, reconhecimento de padrões, e a API de BOTs do Telegram. 
 
 O projeto implementa técnicas de reconhecimento de padrões para o processamento
 e classificação das mensagens, visando assim auxiliar pizzarias nos atendimentos e questões
