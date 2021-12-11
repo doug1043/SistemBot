@@ -50,10 +50,15 @@ Agora execute o arquivo mentor.py:
 python3 mentor.py
 ```
 ## Em funcionamento:
-
-<img src="https://github.com/doug1043/SistemBot/blob/master/testes/cardapio.png?raw=true" min-width="70px" max-width="70px" width="70px" align="left">
-
-
+<br>
+<div>
+  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/cardapio.png?raw=true" min-width="120px" max-width="120px" width="120px" align="left">
+  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/confirma.png?raw=true" min-width="120px" max-width="120px" width="120px" align="left">
+  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/finalizado.png?raw=true" min-width="120px" max-width="120px" width="120px" align="left">
+  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/pedidocompleto.png?raw=true" min-width="120px" max-width="120px" width="120px" align="left">
+  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/pedidopizza.png?raw=true" min-width="120px" max-width="120px" width="120px" align="left">
+</div>
+<br>
 
 ## Contribuindo
 Solicitações pull são bem-vindas!
