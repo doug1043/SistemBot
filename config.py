@@ -11,7 +11,7 @@ bot = telegram.Bot(token=TOKEN)
 
 nlp = {}
 
-nlp["dic"] = '/home/douglas/Documentos/SistemBot/NLP'
+nlp["dic"] = '.../SistemBot/NLP'
 
 
 
