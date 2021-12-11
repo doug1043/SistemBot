@@ -53,9 +53,13 @@ python3 mentor.py
 <br>
 <div>
   <img src="https://github.com/doug1043/SistemBot/blob/master/testes/cardapio.png?raw=true" min-width="250px" max-width="250px" width="250px" align="center">
+  <br>
   <img src="https://github.com/doug1043/SistemBot/blob/master/testes/confirma.png?raw=true" min-width="250px" max-width="250px" width="250px" align="center">
+  <br>
   <img src="https://github.com/doug1043/SistemBot/blob/master/testes/finalizado.png?raw=true" min-width="250px" max-width="250px" width="250px" align="center">
+  <br>
   <img src="https://github.com/doug1043/SistemBot/blob/master/testes/pedidocompleto.png?raw=true" min-width="250px" max-width="250px" width="250px" align="center">
+  <br>
   <img src="https://github.com/doug1043/SistemBot/blob/master/testes/pedidopizza.png?raw=true" min-width="250px" max-width="250px" width="250px" align="center">
 </div>
 <br>
