@@ -51,16 +51,10 @@ python3 mentor.py
 ```
 ## Em funcionamento:
 
-<p float="left">
-  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/cardapio.png?raw="true"" min-width="250px" max-width="250px" width="250px" align="right">
-  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/confirma.png?raw="true"" min-width="250px" max-width="250px" width="250px" align="right">
-  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/finalizado.png?raw="true"" min-width="250px" max-width="250px" width="250px" align="right">
-</p>
+  ![Cardapio](https://github.com/doug1043/SistemBot/blob/master/testes/cardapio.png?raw="true")   ![Confirmar](https://github.com/doug1043/SistemBot/blob/master/testes/confirma.png?raw="true")
+#
+  ![Finalizar](https://github.com/doug1043/SistemBot/blob/master/testes/finalizado.png?raw="true")   ![Pedindo](https://github.com/doug1043/SistemBot/blob/master/testes/pedidopizza.png?raw="true")
 
-<p float="left">
-  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/pedidopizza.png?raw="true"" min-width="250px" max-width="250px" width="250px" align="right">
-  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/pedidocompleto.png?raw="true"" min-width="250px" max-width="250px" width="250px" align="right">
-</p>
 
 ## Contribuindo
 Solicitações pull são bem-vindas!
