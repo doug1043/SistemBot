@@ -51,7 +51,8 @@ python3 mentor.py
 ```
 ## Em funcionamento:
 <br>
-<img src="https://github.com/doug1043/SistemBot/blob/master/testes/cardapio.png?raw="true"" min-width="200px" max-width="200px" width="200px" align="left">  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/confirma.png?raw="true"" min-width="200px" max-width="200px" width="200px" align="right">
+<img src="https://github.com/doug1043/SistemBot/blob/master/testes/cardapio.png?raw="true"" min-width="250px" max-width="250px" width="250px" align="left"> | <img src="https://github.com/doug1043/SistemBot/blob/master/testes/confirma.png?raw="true"" min-width="250px" max-width="250px" width="250px" align="left">
+#
 
 ![Cardapio](https://github.com/doug1043/SistemBot/blob/master/testes/cardapio.png?raw="true")  ![Confirmmando](https://github.com/doug1043/SistemBot/blob/master/testes/confirma.png?raw=true")
  # 
