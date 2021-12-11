@@ -52,15 +52,15 @@ python3 mentor.py
 ## Em funcionamento:
 <br>
 <div>
-  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/cardapio.png?raw=true">
+  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/cardapio.png?raw=true" padding = "10px">
   
-  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/confirma.png?raw=true">
+  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/confirma.png?raw=true" padding = "10px">
 
-  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/finalizado.png?raw=true">
+  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/finalizado.png?raw=true" padding = "10px">
   
-  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/pedidocompleto.png?raw=true">
+  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/pedidocompleto.png?raw=true" padding = "10px">
   
-  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/pedidopizza.png?raw=true">
+  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/pedidopizza.png?raw=true" padding = "10px">
 </div>
 <br>
 
