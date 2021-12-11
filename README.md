@@ -51,7 +51,7 @@ python3 mentor.py
 ```
 ## Em funcionamento:
 
-<img src="https://github.com/doug1043/SistemBot/blob/master/testes/cardapio.png?raw=true" min-width="400px" max-width="400px" width="400px" align="right">
+<img src="https://github.com/doug1043/SistemBot/blob/master/testes/cardapio.png?raw=true" min-width="70px" max-width="70px" width="70px" align="left">
 
 
 
