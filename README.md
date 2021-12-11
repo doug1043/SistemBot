@@ -52,11 +52,11 @@ python3 mentor.py
 ## Em funcionamento:
 <br>
 <div>
-  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/cardapio.png?raw=true" min-width="120px" max-width="120px" width="120px" align="left">
-  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/confirma.png?raw=true" min-width="120px" max-width="120px" width="120px" align="left">
-  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/finalizado.png?raw=true" min-width="120px" max-width="120px" width="120px" align="left">
-  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/pedidocompleto.png?raw=true" min-width="120px" max-width="120px" width="120px" align="left">
-  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/pedidopizza.png?raw=true" min-width="120px" max-width="120px" width="120px" align="left">
+  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/cardapio.png?raw=true" min-width="200px" max-width="200px" width="200px" align="left">
+  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/confirma.png?raw=true" min-width="200px" max-width="200px" width="200px" align="left">
+  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/finalizado.png?raw=true" min-width="200px" max-width="200px" width="200px" align="left">
+  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/pedidocompleto.png?raw=true" min-width="200px" max-width="200px" width="200px" align="left">
+  <img src="https://github.com/doug1043/SistemBot/blob/master/testes/pedidopizza.png?raw=true" min-width="200px" max-width="200px" width="200px" align="left">
 </div>
 <br>
 
