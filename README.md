@@ -52,9 +52,9 @@ python3 mentor.py
 ## Em funcionamento:
 <br>
 
-![Cardapio](https://github.com/doug1043/SistemBot/blob/master/testes/cardapio.png?raw="true")
+![Cardapio](https://github.com/doug1043/SistemBot/blob/master/testes/cardapio.png?raw="true")    ![Confirmmando](https://github.com/doug1043/SistemBot/blob/master/testes/confirma.png?raw=true")
   
-![Confirmmando](https://github.com/doug1043/SistemBot/blob/master/testes/confirma.png?raw=true")
+
 
 ![Finalizando](https://github.com/doug1043/SistemBot/blob/master/testes/finalizado.png?raw=true")
   
